@@ -1,0 +1,369 @@
+* {
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #f2f3f5;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* サイドバー */
+.sidebar {
+  width: 180px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu {
+  padding: 5px;
+}
+
+.menu-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item .sidebar-icon {
+  margin-right: 10px;
+}
+
+.menu-item:hover {
+  background-color: #34495e;
+}
+
+.menu-item.active {
+  background-color: #2980b9;
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+/* アイドル動画 */
+.video-container {
+  flex-direction: column;
+  flex-basis: 30%;
+  border-radius: 30%;
+  overflow: hidden;
+  display: flex;
+  /* 要素をフレックスボックスに設定 */
+  justify-content: center;
+  /* 横方向の中央揃え */
+  align-items: center;
+  /* 縦方向の中央揃え */
+}
+
+.video-icon {
+  order: 1;
+  cursor: pointer;
+  margin-bottom: 5px;
+  background-color: #b9b9b9;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.video {
+  order: 2;
+  pointer-events: none;
+  object-fit: cover;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
+
+/* chatエリア */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 70%;
+  height: 100vh;
+}
+
+.chat-history-container {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+  background-color: rgba(244, 244, 244, 0.4);
+  border: 2px solid #ccc;
+  /* 外枠線を追加 */
+  border-radius: 8%;
+  margin: 20px 20px 10px 5px;
+}
+
+/* chat-history-containerのスクロールバー */
+.chat-history-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-history-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-history-container::-webkit-scrollbar-thumb {
+  background: #ccccccc3;
+  border-radius: 10px;
+}
+
+.chat-history-container::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* メッセージ */
+.message {
+  width: 75%;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-align: left;
+  position: relative;
+  background-color: transparent;
+  /* 背景色を透明にする */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 影を追加 */
+}
+
+.user-message {
+  background-color: rgb(186, 218, 225);
+  margin-left: auto;
+}
+
+.gpt-message {
+  background-color: #fff;
+  margin-right: auto;
+}
+
+/* メッセージの吹き出し */
+.message::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  border: 15px solid transparent;
+  border-bottom: 0;
+}
+
+.user-message::after {
+  right: -10px;
+  border-left-color: rgb(186, 218, 225);
+  border-right: none;
+}
+
+.gpt-message::after {
+  left: -10px;
+  border-right-color: #fff;
+  border-left: none;
+}
+
+.transcript-and-send-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+  position: sticky;
+  bottom: 0;
+  width: 97%;
+}
+
+/* テキストエリア */
+.textarea-container {
+  width: 100%;
+}
+
+.textarea-with-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  width: 100%;
+}
+
+textarea {
+  padding: 5px 39px 5px 12px;
+  width: 100%;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  background-color: #fff;
+  height: auto;
+  border-radius: 8px;
+  resize: none;
+  line-height: 30px;
+  overflow: hidden;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  border: none;
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.send-btn {
+  width: 39px;
+  height: 39px;
+  margin-left: 6px;
+  background-color: rgba(25, 150, 250);
+}
+
+.send-btn:hover {
+  filter: brightness(80%);
+}
+
+.stop-speak-btn {
+  width: 39px;
+  height: 39px;
+  margin-left: 6px;
+  background-color: #fff;
+}
+
+.stop-speak-btn:hover {
+  filter: brightness(80%);
+}
+
+.Recording-btn {
+  background-color: #fff;
+  padding: 5px 6px;
+}
+
+.Recording-btn:hover {
+  filter: brightness(90%);
+  border-radius: 50%;
+}
+
+.clear-btn {
+  background-color: #fff;
+  width: 15px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.icon {
+  font-size: 23px;
+}
+
+.Recording-icon {
+  font-size: 18px;
+}
+
+.header {
+  font-family: "Arial", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header span {
+  color: #ff4081;
+  /* オシャレな色に変更 */
+  font-weight: bold;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+}
+
+/* モバイルフレンドリーなスタイル */
+@media (max-width: 600px) {
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .video-and-chat-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 20px);
+    overflow-y: auto;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    padding-top: 40%;
+    /* 16:9のアスペクト比を維持するために必要なパディング */
+    /* overflow: hidden; */
+  }
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .chat-container {
+    margin-top: 10px;
+    /* 動画との間に余白を設定 */
+    padding: 10px;
+    max-width: none;
+    height: calc(100vh - 56.25vw - 20px);
+    /* 動画とチャットの高さの合計が100vhを超えないように調整 */
+    overflow-y: auto;
+    /* コンテナの高さがコンテンツを超えた場合にスクロール可能にする */
+  }
+
+  .clear-history {
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+  }
+
+  .user-name {
+    font-size: 11px;
+  }
+
+  .message {
+    max-width: 80%;
+    margin: 5px auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .textarea-container {
+    width: 60%;
+  }
+
+  textarea {
+    height: 30px;
+    font-size: 12px;
+  }
+
+  button {
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    border-radius: 15%;
+  }
+}

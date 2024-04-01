@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import "./App.css";
+import SpeechToChatGPT from "./components/SpeechToChatGPT";
+import SpeechToChatGPTEng from "./components/SpeechToChatGPTEng";
+import SpeechToChatGPTCooking from "./components/SpeechToChatGPTCooking";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SpeechToChatGPTCooking />} />
+        <Route path="/english" element={<SpeechToChatGPTEng />} />
+        <Route path="/talk" element={<SpeechToChatGPT />} />
+        {/* URL直接入力時に"/"にリダイレクト */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

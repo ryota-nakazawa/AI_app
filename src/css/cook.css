@@ -1,0 +1,321 @@
+/* 基本的なリセットとフォントの設定 */
+body,
+input,
+button,
+textarea {
+  font-family: 'Roboto', sans-serif;
+  /* またはお好みのフォント */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-cook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0e5de;
+}
+
+.character-container {
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* ソフトなシャドウを追加 */
+}
+
+/* アプリの使い方を説明するテキストのスタイル */
+.app-instructions {
+  max-width: 600px;
+  /* コンテンツの最大幅 */
+  padding: 15px;
+  margin: 20px auto;
+  /* 中央寄せ */
+  background-color: #ffffff;
+  /* 背景色 */
+  border-radius: 8px;
+  /* 角の丸み */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 影の追加 */
+  font-size: 1em;
+  /* フォントサイズ */
+  line-height: 1.6;
+  /* 行間 */
+}
+
+.app-instructions p {
+  font-weight: bold;
+  /* 見出しを目立たせる */
+}
+
+.app-instructions ol {
+  padding-left: 20px;
+  /* 番号付きリストのインデント */
+}
+
+.switch-character-button {
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.switch-character-button:hover {
+  background-color: #367c39;
+  /* ホバー時の色 */
+}
+
+.inputs-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputs-container h2 {
+  align-self: flex-start;
+}
+
+.inputs-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.inputs-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inputs-container button:hover {
+  background-color: #45a049;
+}
+
+/* インプット追加ボタンのスタイル */
+.input-add-button {
+  margin-top: 10px;
+  background-color: #ff9800;
+  /* 明るいオレンジ色に設定 */
+  color: white;
+  padding: 0;
+  /* パディングを削除または調整 */
+  border: none;
+  border-radius: 50%;
+  /* ボタンを円形に */
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  /* `height`に合わせて`line-height`を設定 */
+  text-align: center;
+  font-size: 16px;
+  /* ボタンのサイズに合わせて調整 */
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* シャドウを付ける */
+  display: flex;
+  /* フレックスボックスを使用 */
+  justify-content: center;
+  /* 水平中央揃え */
+  align-items: center;
+  /* 垂直中央揃え */
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.input-add-button:hover {
+  background-color: #ffcc80;
+  /* ホバー時はより明るいオレンジ色に */
+  transform: scale(1.1);
+  /* ホバー時に少し大きくする */
+}
+
+.character-container img {
+  max-width: 100%;
+  /* 画像がコンテナを超えないようにする */
+  max-height: 300px;
+  /* 画像の最大の高さを設定 */
+  height: auto;
+  /* 高さを自動で調整してアスペクト比を保持 */
+  width: auto;
+  /* 幅を自動で調整してアスペクト比を保持 */
+}
+
+.input-sections-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  width: 90%;
+  background-color: #ffffff;
+  /* 明るい白色で内容を際立たせる */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* コンテンツに深みを加えるソフトな影 */
+}
+
+.ingredients-container,
+.seasonings-container {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  /* 両側のセクションが画面幅の半分を占めるようにする */
+  width: calc(50% - 10px);
+  /* 各セクションの幅を調整 */
+}
+
+.inputs-container h2 {
+  margin-bottom: 10px;
+}
+
+.inputs-container input {
+  padding: 10px;
+  margin-bottom: 10px;
+  /* 入力フィールド間のスペースを作る */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.inputs-container button {
+  margin-top: 20px;
+  /* ボタンと入力フィールドの間にスペースを作る */
+  padding: 10px 20px;
+  /* ... */
+}
+
+/* 材料の入力枠のスタイル */
+.ingredients-container input {
+  margin-bottom: 12px;
+  /* 下側のマージンを適用 */
+  /* 他のスタイル */
+}
+
+/* 調味料の入力枠のスタイル（必要に応じて） */
+.seasonings-container input {
+  margin-bottom: 12px;
+  /* 下側のマージンを適用 */
+  /* 他のスタイル */
+}
+
+.menu-suggestion-container {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+
+.menu-suggestion-container h3 {
+  margin-top: 0;
+}
+
+.menu-suggestion-container p {
+  white-space: pre-wrap;
+  /* 提案の改行を保持 */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+/* ボタンの基本スタイル */
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  /* 適切なフォントサイズ */
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  /* 自動的に幅を調整 */
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+/* 画面サイズが小さい場合のスタイル調整 */
+@media (max-width: 768px) {
+  .input-sections-container {
+    flex-direction: column;
+  }
+
+  .ingredients-container,
+  .seasonings-container {
+    width: 100%;
+  }
+
+  .menu-suggestion-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-add-button {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    /* 必要に応じて調整 */
+  }
+
+  h2,
+  .button {
+    font-size: 1em;
+    /* さらに小さい画面ではさらに小さめに */
+  }
+}
+
+/* レスポンシブデザインの対応 */
+@media (max-width: 768px) {
+  .switch-character-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .input-add-button {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    /* 必要に応じて調整 */
+  }
+
+  .app-instructions {
+    padding: 10px;
+    margin: 20px 10px;
+    /* スマホ表示でのサイドマージン調整 */
+    font-size: 0.9em;
+    /* スマホ表示でのフォントサイズ調整 */
+  }
+}
