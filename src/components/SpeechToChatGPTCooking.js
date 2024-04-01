@@ -87,7 +87,12 @@ const SpeechToChatGPTCooking = () => {
           <li>献立を提案するボタンを押して、提案を得てください。</li>
         </ol>
       </div>
-      {isLoading && <p>献立を考案中です。もう少々お待ちください。</p>}
+      {/* ローディングポップアップと背景 */}
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="loading-popup">献立を考案中です。もう少々お待ちください。</div>
+        </div>
+      )}
       {/* 献立提案のセクションを参照するために ref を設定 */}
       <button onClick={switchCharacter} className="switch-character-button">キャラクターを切り替える</button>
       <div className="input-sections-container">
@@ -116,7 +121,7 @@ const SpeechToChatGPTCooking = () => {
           <button onClick={addSeasoningInput} className="input-add-button">+</button>
         </div>
       </div>
-      <button className="button" onClick={handleSuggestMenu}>献立を提案する</button>
+      <button className="switch-character-button" onClick={handleSuggestMenu}>献立を提案する</button>
       {/* 献立の提案を表示 */}
       {menuSuggestion && (
         <div className="menu-suggestion-container" ref={menuSuggestionRef}>
